@@ -291,12 +291,11 @@ textarea {
 }
 
 .card {
-    color: #000;
-    /* height: 400px; */
+    color: white !important;
     margin-top: 10px !important;
-    height: 324px !important;
+    height: 316px !important;
     margin-left: 0px !important;
-    background: #b3d4fc !important;
+    background: #0c084a !important;
     border-radius: 5px !important;
     margin-right: 9px !important;
 }

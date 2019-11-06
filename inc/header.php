@@ -27,7 +27,7 @@
 	<script src="js/jquery.js" type="text/javascript"></script>
   </div>
 
-  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<!-- <script src="js/jquery.nivo.slider.js" type="text/javascript"></script> -->
 
 <!-- <script type="text/javascript">

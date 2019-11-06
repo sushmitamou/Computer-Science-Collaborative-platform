@@ -391,14 +391,14 @@ font-weight: bold !important;
   margin-top: 10px;
 }
 .readmore a {
-  background: #fff none repeat scroll 0 0;
-  border: 1px solid black;
-  border-radius: 3px;
-  color: #050591;
-  display: block;
-  font-size: 17px;
-  padding: 4px 8px;
-  text-decoration: none;
+    background: #05054B !important;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: white !important;
+    display: block;
+    font-size: 17px;
+    padding: 4px 8px;
+    text-decoration: none;
 }
 .readmore a:hover{color:#E16525;}
 .sidebar {

@@ -1,6 +1,7 @@
 <?php include "inc/header.php";?>
 
 	<div class="contentsection contemplete clear">
+	<?php include "inc/sidebar.php"; ?>
 		<div class="maincontent clear">
 			<div class="about">
 				<h2>About us</h2>
@@ -13,5 +14,4 @@
 	        </div>
 		</div>
 		
-		<?php include "inc/sidebar.php"; ?>
 		<?php include "inc/footer.php"; ?>

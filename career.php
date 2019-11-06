@@ -19,10 +19,11 @@
                 while ($result = $post->fetch_assoc()){
             ?>
                 <div class="row" style="float:left;">
-                    <div class="col-4-lg ml-3" style="float:left;">
+                 <div class="col-4-lg ml-3" style="float:left;">
+
                         <div class="card" style="width:21rem; margin-left:25px; float:left;">
                             <h2><?php $i; ?></h2>
-                            <!--<div class="card-img-top"><img src="admin/<?php echo $result['image']; ?>"/></div>-->
+                                <!-- <div class="card-img-top"><img src="admin/<?php echo $result['image']; ?>"/></div>-->
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $result['title']; ?> </h4>
                                     <p class="card-text">
@@ -42,12 +43,15 @@
                 </div>
             <?php } ?>    
     </div>
+
+
             
  <!-- end while loop -->
 
 <!--pagination-->
 
         <?php } else { header("Location:404.php");} ?>	
-		</div>
+</div>
+ 
 
 		<?php include "inc/footer.php"; ?>
