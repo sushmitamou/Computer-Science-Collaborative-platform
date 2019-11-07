@@ -24,11 +24,22 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<script src="js/jquery.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+
+
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+	<!-- <script src="js/jquery.js" type="text/javascript"></script>
   </div>
 
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<!-- <script src="js/jquery.nivo.slider.js" type="text/javascript"></script> -->
+	<script src="js/jquery.nivo.slider.js" type="text/javascript"></script> -->
 
 <!-- <script type="text/javascript">
 $(window).load(function() {
