@@ -18,12 +18,13 @@
                 if($post){
                 while ($result = $post->fetch_assoc()){
             ?>
+            
                 <div class="row" style="float:left;">
-                 <div class="col-4-lg ml-3" style="float:left;">
+                    <div class="col-4-lg ml-3" style="float:left;">
 
                         <div class="card" style="width:21rem; margin-left:25px; float:left;">
                             <h2><?php $i; ?></h2>
-                                <!-- <div class="card-img-top"><img src="admin/<?php echo $result['image']; ?>"/></div>-->
+                               <img class= "card-img" src="admin/<?php echo $result['image']; ?>"/> 
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $result['title']; ?> </h4>
                                     <p class="card-text">
@@ -41,6 +42,8 @@
                         </div>
                     </div>    
                 </div>
+
+           
             <?php } ?>    
     </div>
 

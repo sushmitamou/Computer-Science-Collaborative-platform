@@ -18,7 +18,7 @@
 		?>
 		<!--pagination-->
 		<?php	
-			$query = "select * from tbl_blogpage limit $start_from, $per_page";
+			$query = "select * from tbl_blogpage where active=1 order by id desc limit $start_from, $per_page";
 			$post= $db->select($query);
 			if($post){
 			while ($result = $post->fetch_assoc()){

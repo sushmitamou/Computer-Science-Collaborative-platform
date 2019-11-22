@@ -91,23 +91,32 @@ $(window).load(function() {
 
               <ul class="nav navbar-nav navbar-left">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">User profile</a></li>
-                <li><a href="blog.php">Blog</a></li>
                 <li><a href="about.php">About us</a></li>
                 <li><a href="#">Notifications</a></li>
+                <li><a href="post2.php">Post</a></li>
+                <li><a href="blog.php">Blog</a></li>
+
+                <li class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">Add Posts<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                  <li><a href="addpost2.php">Add Post</a></li>
+                  <li><a href="addpost.php">Add Blog Post</a></li>
+                  <li><a href="create-feedback.php">Alumnus Feedback</a></li>
+                  </ul>
+                </li>
 
                 <li class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                    aria-haspopup="true" aria-expanded="false">Informative Sites<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  <li><a href="create.php">Create Card</a></li>
                   <li><a href="career.php">Career Development</a></li>
-                  <li><a href="create-feedback.php">Give Feedback</a></li>
                   <li><a href="alumnus-feedback.php">Alumnus feedback</a></li>
                   <li><a href="#">LUCC events</a></li>
                   </ul>
                 </li>
                
+
 
                 <li><a href="#">Log-out</a></li>
               </ul>

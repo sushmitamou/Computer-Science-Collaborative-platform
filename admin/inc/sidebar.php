@@ -29,6 +29,15 @@
                                 <li><a href="postlist.php">Card list for Career</a> </li>
                             </ul>
                         </li>
+                        <li><a class="menuitem">Pending Posts</a>
+                            <ul class="submenu">
+                                <li><a href="pending-post.php">Pending Items For Blog</a> </li>
+                                <li><a href="pending-post2.php">Pending Items For Post</a> </li>
+                                <li><a href="pending-post3.php">Pending Items For Alumni</a> </li>
+                                
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>
