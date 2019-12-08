@@ -31,7 +31,19 @@
                         </li>
                         <li><a class="menuitem">Pending Posts</a>
                             <ul class="submenu">
-                                <li><a href="pending-post.php">Pending Items For Blog</a> </li>
+                                <li><a href="pending-post.php">Pending Items For Blog
+                                <?php 
+                                    $query = "select * from tbl_blogpage where active='0' order by id desc";
+                                    $msg = $db->select($query);
+                                    if($msg){
+                                        $count = mysqli_num_rows($msg);
+                                        echo "(".$count.")";
+                                    }
+                                    else{
+                                        echo "(0)";
+                                    }
+                                ?>
+                                </a> </li>
                                 <li><a href="pending-post2.php">Pending Items For Post</a> </li>
                                 <li><a href="pending-post3.php">Pending Items For Alumni</a> </li>
                                 
