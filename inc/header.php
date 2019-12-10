@@ -1,6 +1,8 @@
 <?php include 'config/config.php';?>
 <?php include 'lib/database.php';?>
 <?php include 'helpers/Format.php';?>
+<?php include 'config2.php';?>
+
 
 <?php
 	$db = new Database();
@@ -90,7 +92,7 @@ $(window).load(function() {
           <div class="container-fluid">
 
               <ul class="nav navbar-nav navbar-left">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index2.php">Home</a></li>
                 <li><a href="about.php">About us</a></li>
                 <li><a href="#">Notifications</a></li>
                 <li><a href="post2.php">Post</a></li>
@@ -118,7 +120,7 @@ $(window).load(function() {
                
 
 
-                <li><a href="#">Log-out</a></li>
+                <li><a href="logout.php">Log-out</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

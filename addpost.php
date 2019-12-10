@@ -114,7 +114,7 @@
 
 
 
-<script src="admin/js/tiny-mce/jquery.tinymce.js" type="text/javascript"></script>
+<script src="js/tiny-mce/jquery.tinymce.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () 
         {

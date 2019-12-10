@@ -115,6 +115,15 @@
 
                         <tr>
                             <td>
+                                <label>Upload File</label>
+                            </td>
+                            <td>
+                                <input type="file" name = "file"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
                                 <label>Tags</label>
                             </td>
                             <td>
@@ -145,7 +154,7 @@
 
 
 
-<script src="admin/js/tiny-mce/jquery.tinymce.js" type="text/javascript"></script>
+<script src="js/tiny-mce/jquery.tinymce.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () 
         {

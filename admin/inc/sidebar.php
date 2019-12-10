@@ -44,8 +44,32 @@
                                     }
                                 ?>
                                 </a> </li>
-                                <li><a href="pending-post2.php">Pending Items For Post</a> </li>
-                                <li><a href="pending-post3.php">Pending Items For Alumni</a> </li>
+                                <li><a href="pending-post2.php">Pending Items For Post
+                                <?php 
+                                    $query = "select * from tbl_post where active='0' order by id desc";
+                                    $msg = $db->select($query);
+                                    if($msg){
+                                        $count = mysqli_num_rows($msg);
+                                        echo "(".$count.")";
+                                    }
+                                    else{
+                                        echo "(0)";
+                                    }
+                                ?>
+                                </a> </li>
+                                <li><a href="pending-post3.php">Pending Items For Alumni
+                                <?php 
+                                    $query = "select * from alumnus_feedback where active='0' order by id desc";
+                                    $msg = $db->select($query);
+                                    if($msg){
+                                        $count = mysqli_num_rows($msg);
+                                        echo "(".$count.")";
+                                    }
+                                    else{
+                                        echo "(0)";
+                                    }
+                                ?>
+                                </a> </li>
                                 
                             </ul>
                         </li>
