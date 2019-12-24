@@ -56,11 +56,11 @@
         <div class="grid_12 header-repeat">
             <div id="branding">
                 <div class="floatleft logo">
-                    <img src="img/LUlogo.jpg" alt="Logo" />
+                    <img src="img/livelogo.png" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
-					<h1>Admin Panel</h1>
-					<h3>Computer Science Collaborative Platform</h3>
+					<h1>Training with live project</h1>
+					<p>www.trainingwithliveproject.com</p>
 				</div>
                 <div class="floatright">
                     <div class="floatleft">
@@ -72,7 +72,7 @@
                 ?>        
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
-                            <li>Hello Admin</li>
+                            <li>Hello <?php echo Session::get('username'); ?></li>
                             <li><a href="?action=logout">Logout</a></li>
                         </ul>
                     </div>
@@ -85,13 +85,29 @@
         </div>
         <div class="grid_12">
             <ul class="nav main">
-                <li class="ic-dashboard"><a href="index2.php"><span>Dashboard</span></a> </li>
-                <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
+                <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
+                <li class="ic-form-style"><a href="profile.php"><span>User Profile</span></a></li>
 				<li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
-				<li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
-                <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
-            </ul>
-        </div>
+				<li class="ic-grid-tables"><a href="inbox.php"><span>Inbox
+                    <?php 
+                        $query = "select * from tbl_contact where status='0' order by id desc";
+                        $msg = $db->select($query);
+                        if($msg){
+                            $count = mysqli_num_rows($msg);
+                            echo "(".$count.")";
+                        }
+                        else{
+                            echo "(0)";
+                        }
+                    ?>
+                </span></a></li>
+                <?php if(Session::get('userRole') == '3') { ?>
+                    <li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
+                <?php } ?>
+
+                <li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>            
+                </ul>
+            </div>
         <div class="clear">
         </div>
       

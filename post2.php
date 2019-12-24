@@ -1,8 +1,4 @@
-
 <?php include 'inc/header.php';?>
-
-
-
 	<div class="contentsection contemplete clear">
 	<?php include "inc/sidebar.php"; ?>
 		<div class="maincontent clear">
@@ -35,7 +31,7 @@
 					<a href="post3.php?id=<?php echo $result['id']; ?>">Read More</a>
 				</div>
 			</div>
-<?php } ?> <!-- end while loop -->
+    <?php } ?> <!-- end while loop -->
 
 <!--pagination-->
 <?php 

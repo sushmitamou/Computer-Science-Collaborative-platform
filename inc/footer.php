@@ -20,5 +20,6 @@
 </div>
 -->
 <script type="text/javascript" src="js/scrolltop.js"></script>
+<script id="dsq-count-scr" src="//mouli.disqus.com/count.js" async></script>
 </body>
 </html>

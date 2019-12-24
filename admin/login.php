@@ -35,12 +35,8 @@
 
 		$query = "SELECT * FROM tbl_user WHERE username = '$username' AND password = '$password'";
 		$result = $db->select($query);
-
-
 		if ($result != false)
-		{
-			
-			
+		{			
 			$value = mysqli_fetch_array($result);
 			$row = mysqli_num_rows($result);
 			if($row > 0)

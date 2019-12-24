@@ -194,6 +194,19 @@ textarea {
     /* border-bottom: 2px dotted white !important; */
     padding-top: 126px !important;
 }
+
+.regi-form{
+    height: 400px !important;
+    width: 700px !important;
+}
+
+/* addpost */
+.box-h2{
+    color: #000 !important;
+}
+
+
+
 /*h1, .h1, h2, .h2, h3, .h3 {
     margin-top: 0 !important;
     margin-bottom: 10px; 

@@ -6,7 +6,7 @@
             <?php include 'inc/sidebar.php'; ?>
 		
             <div class="box round first grid">
-                <h2>Add New Post</h2>
+                <div class="box-h2"><h2>Add New Post</h2></div>
             <?php
                 if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 {
@@ -166,4 +166,3 @@
     </script>
 
 
-<?php include 'inc/footer.php'; ?>

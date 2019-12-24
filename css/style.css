@@ -269,7 +269,7 @@ padding: 20px;
 }
 .about img {
   background: #fff none repeat scroll 0 0;
-  border: 1px solid #b7801c;
+  border: 1px solid #312f2f;
   float: left;
   height: 190px;
   margin-right: 10px;
@@ -317,7 +317,7 @@ border-radius: 3px;}
 }
 .relatedpost{}
 .relatedpost h2 {
-  background: #e6af4b none repeat scroll 0 0;
+ 
   border-bottom: 2px solid #b7801c !important;
   color: #000 !important;
   margin-bottom: 8px !important;

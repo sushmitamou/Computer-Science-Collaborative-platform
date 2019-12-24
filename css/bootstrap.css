@@ -2351,7 +2351,9 @@ pre code {
   }
 }
 table {
-  background-color: transparent;
+    background: white !important;
+    width: 800px !important;
+    line-height: 35px !important;
 }
 table col[class*="col-"] {
   position: static;

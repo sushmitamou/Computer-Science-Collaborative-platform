@@ -1,7 +1,12 @@
+<?php 
+    include 'lib/Session.php';
+    Session::checkSession();
+
+?>
+
 <?php include 'config/config.php';?>
 <?php include 'lib/database.php';?>
 <?php include 'helpers/Format.php';?>
-<?php include 'config2.php';?>
 
 
 <?php
@@ -13,8 +18,6 @@
 <html   class="no-js" lang="">>
 <head>
 
-
-
 	<title>Basic Website</title>
 	<meta name="language" content="English">
 	<meta name="description" content="It is a website about education">
@@ -24,12 +27,11 @@
 
 	<!-- <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" /> -->
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/stylelogin.css"> 
 	<link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/normalize.css">
-
-
-
+  <link rel="stylesheet" href="css/normalize.css"> 
+    
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
@@ -92,11 +94,34 @@ $(window).load(function() {
           <div class="container-fluid">
 
               <ul class="nav navbar-nav navbar-left">
-                <li><a href="index2.php">Home</a></li>
-                <li><a href="about.php">About us</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="post2.php">Post</a></li>
-                <li><a href="blog.php">Blog</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index2.php">Inbox</a></li>
+                <li><a href="post2.php">Post
+                <?php 
+                    $query = "select * from tbl_post where active='1' order by id desc";
+                    $msg = $db->select($query);
+                    if($msg){
+                        $count = mysqli_num_rows($msg);
+                        echo "(".$count.")";
+                    }
+                    else{
+                        echo "(0)";
+                    }
+                ?>
+                </a></li>
+                <li><a href="blog.php">Blog
+                <?php 
+                    $query = "select * from tbl_blogpage where active='1' order by id desc";
+                    $msg = $db->select($query);
+                    if($msg){
+                        $count = mysqli_num_rows($msg);
+                        echo "(".$count.")";
+                    }
+                    else{
+                        echo "(0)";
+                    }
+                ?>
+                </a></li>
 
                 <li class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -120,7 +145,7 @@ $(window).load(function() {
                
 
 
-                <li><a href="logout.php">Log-out</a></li>
+                <li><a href="?action=logout">Log-out</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

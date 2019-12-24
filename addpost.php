@@ -95,8 +95,11 @@
                                 <label>Author</label>
                             </td>
                             <td>
-                                <input type="text" name= "author" placeholder="Enter Author Name..." class="medium" />
-                            </td>
+                                <input type="text" name= "name" value="<?php echo Session::get('name')?>" 
+                                class="medium" />
+                                <input type="hidden" name= "userid" value="<?php echo Session::get('userId')?>" 
+                                class="medium" />
+                            </td>    
                         </tr>
 						<tr>
                             <td></td>
@@ -126,4 +129,3 @@
     </script>
 
 
-<?php include 'inc/footer.php'; ?>

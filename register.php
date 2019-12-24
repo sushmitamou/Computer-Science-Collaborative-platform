@@ -1,105 +1,129 @@
 <?php 
-
-require_once "functions.php";
-$loginregister = new LoginRegister();
-if($loginregister->getSession()){
-	header('location:index.php');
-	exit();
-}
-
-
+	include 'lib/Session.php';
+	Session::checkLogin();
 
 ?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>Registration Page</title>
-		<link rel="stylesheet" type="text/css" href="style1.css">
-	</head>
-	<body>
-		<div class="wrapper">
-			<?php include_once "inc/header2.php";?>
-
-			<div class="st">
-			</div>
-			<div class="content">
-				<h2>Register</h2>
-			</div>
-			<p class="msg">
-				<?php
-				if($_SERVER["REQUEST_METHOD"]=="POST"){
-					$username = $_POST['username'];
-					$password = md5($_POST['password']);
-					$name = $_POST['name'];
-					$email = $_POST['email'];
-					$std_id = $_POST['std_id'];
-					// $website = $_POST['website'];
-					if(empty($username) or empty($password) or  empty($email) or empty($name) or empty($std_id)){
-						echo "<span style='color:#e53d37'>Field must not be empty</span>";
-					}
-					elseif (!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
-						# code...
-						echo "<span style='color:#e53d37'>Invalid E-mail format.</span>";
+<?php include 'config/config.php';?>
+<?php include 'lib/database.php';?>
+<?php include 'helpers/Format.php';?>
 
 
-					}
-					else{
-						$register = $loginregister->registerUser($username,$password,$email,$name,$std_id);
-						// if(isset($register)){
-						// 	echo "<span style='color:green'>Registration successfully compleated <a href='login.php'>Click Here</a> for login.</span>";
-						// }else{
-						// 	echo "Username or Email or Student ID already exist.";
-						// }
-					}
-				}
+<?php
+	$db = new Database();
+	$fm = new Format();
 
+?>
+    <div class="grid_10">
+		
+        <div class="box round first grid">
 
-				?>
-			</p>
-			<div class="login_reg">
-				<form action="" method="post">
-					<table>
-						<tr>
-							<td>Student ID:</td>
-							<td><input type="number" name="std_id" placeholder="Please enter student Id"/></td>
-						</tr>
-						<tr>
-							<td>Username:</td>
-							<td><input type="text" name="username" placeholder="Please enter your username"/></td>
-						</tr>
-						<tr>
-							<td>Password:</td>
-							<td><input type="password" name="password" placeholder="Please enter your password"/></td>
-						</tr>
-						<tr>
-							<td>Name:</td>
-							<td><input type="text" name="name" placeholder="Please enter your name"/></td>
-						</tr>
-						<tr>
-							<td>Email:</td>
-							<td><input type="text" name="email" placeholder="Please enter your email"/></td>
-						</tr>
-						
-						<!-- <tr>
-							<td>Website:</td>
-							<td><input type="text" name="website" placeholder="Please enter your website"/></td>
-						</tr> -->
-						<tr>
-							<td colspan="2">
-								<input type="submit" name="register" value="Register"/>
-								<input type="reset"  value="Reset"/>
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-			<div class="back"> 
-				<a href="login.php"><img src="img/back.png"></a>
-			</div>
-			<?php include_once "inc/footer2.php"?>
-		</div>
-	</body>
-</html>
+        <div class="regi-form">
+            <h2>Registration</h2>
+            <div class="block copyblock"> 
 
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] == 'POST')
+                {
+                    $user_id  = $fm->validation($_POST['user_id']);
+                    $name     = $fm->validation($_POST['name']);
+                    $password = $fm->validation(md5($_POST['password']));
+                    $email    = $fm->validation($_POST['email']);
+                    $role     = $fm->validation($_POST['role']);
+
+                    $user_id  = mysqli_real_escape_string($db->link, $user_id);
+                    $name 	  = mysqli_real_escape_string($db->link, $name);
+                    $password = mysqli_real_escape_string($db->link, $password);
+                    $email    = mysqli_real_escape_string($db->link, $email);
+                    $role     = mysqli_real_escape_string($db->link, $role);
+
+                    if (empty($user_id) || empty($name) || empty($password) || empty($role) || empty($email)) {
+                        echo "<span class= 'error'>Field must not be empty !</span>";
+                    }
+                    else 
+                    {
+
+                        $mailquery = "select * from normal_user where email = '$email' limit 1";
+                        $mailcheck= $db->select($mailquery);
+                        if($mailcheck != false)
+                        {
+                            echo "<span class= 'error'>Email Already exist!</span>";
+                        }
+                        else
+                        {
+                            $query = "INSERT INTO normal_user(user_id, name, password, email, role) 
+                            VALUES('$user_id', '$name', '$password', '$email', '$role')";
+                            $catinsert = $db->insert($query);
+                            if ($catinsert){
+                                echo "<span class= 'success'>User Created successfully !</span>";
+                            }
+                            else{
+                                echo "<span class= 'error'>User not Created !</span>";
+                            }
+                        }
+                    }
+                }    
+            ?>
+                 <form action="" method="post">
+                    <table class="form">
+
+                        <tr>
+                            <td>
+                                <label>User Id</label>
+                            </td>
+                            <td>
+                                <input type="text" name="user_id" placeholder="Enter Name ..." class="medium" />
+                            </td>
+                        </tr>   					
+                        <tr>
+                            <td>
+                                <label>Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Enter Name ..." class="medium" />
+                            </td>
+                        </tr>
+						<tr> 
+                        <tr>
+                            <td>
+                                <label>Password</label>
+                            </td>
+                            <td>
+                                <input type="text" name="password" placeholder="Enter Password..." 
+                                class="medium" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Email</label>
+                            </td>
+                            <td>
+                                <input type="text" name="email" placeholder="Enter Valid Email Address..." 
+                                class="medium" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>User Role</label>
+                            </td>
+                            <td>
+                                <select id="select" name="role">
+                                    <option>Select User Role</option>
+                                    <option value="1">Teacher</option>
+                                    <option value="2">Alumni</option>
+                                    <option value="3">Student</option>
+                                </select>    
+                            </td>
+                        </tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" name="submit" Value="Submit" />
+                            </td>
+                        </tr>
+                    </table>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        

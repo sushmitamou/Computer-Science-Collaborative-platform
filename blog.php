@@ -1,6 +1,4 @@
 <?php include "inc/header.php";?>
-
-
 <div class="contentsection contemplete clear">
 <?php include 'inc/sidebar.php'; ?>
 		<div class="maincontent clear">
